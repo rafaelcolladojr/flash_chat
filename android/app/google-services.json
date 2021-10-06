@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "659001630451",
+    "project_id": "rafaelcolladojr-flash-chat",
+    "storage_bucket": "rafaelcolladojr-flash-chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659001630451:android:c8b07ba74741d448f96186",
+        "android_client_info": {
+          "package_name": "com.rafaelcollado.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659001630451-klqao725ak1970b1vpvvamhngn0kkbdb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXf5ptLrklTOKb-T-c0aftfPiGcF1nc5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659001630451-klqao725ak1970b1vpvvamhngn0kkbdb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "659001630451-hv3jtbs1t24gve5glaodh3g0cgihd9ds.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rafaelcollado.flashchat"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
