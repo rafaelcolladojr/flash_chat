@@ -20,6 +20,8 @@ const kMessageContainerDecoration = BoxDecoration(
   ),
 );
 
+const kFormInputTextStyle = TextStyle(color: Colors.black);
+
 const kFormInputDecoration = InputDecoration(
   hintStyle: TextStyle(color: Colors.grey),
   contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
