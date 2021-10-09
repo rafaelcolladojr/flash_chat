@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flash_chat/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:loading_overlay/loading_overlay.dart';
 
 import '../rounded_button.dart';
 
@@ -16,15 +16,15 @@ class RegistrationScreen extends StatefulWidget {
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  bool showSpinner = false;
+  bool _isLoading = false;
   String email = '', password = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: ModalProgressHUD(
-        inAsyncCall: showSpinner,
+      body: LoadingOverlay(
+        isLoading: _isLoading,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
@@ -73,7 +73,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 color: Colors.blueAccent,
                 onPressed: () async {
                   setState(() {
-                    showSpinner = true;
+                    _isLoading = true;
                   });
                   try {
                     var credentials =
@@ -94,7 +94,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     print(e);
                   }
                   setState(() {
-                    showSpinner = false;
+                    _isLoading = false;
                   });
                 },
               ),

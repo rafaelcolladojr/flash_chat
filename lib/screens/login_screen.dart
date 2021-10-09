@@ -3,7 +3,7 @@ import 'package:flash_chat/constants.dart';
 import 'package:flash_chat/rounded_button.dart';
 import 'package:flash_chat/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:loading_overlay/loading_overlay.dart';
 
 class LoginScreen extends StatefulWidget {
   static String route = '/login';
@@ -16,15 +16,15 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  bool showSpinner = false;
+  bool _isLoading = false;
   String email = '', password = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: ModalProgressHUD(
-        inAsyncCall: showSpinner,
+      body: LoadingOverlay(
+        isLoading: _isLoading,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
@@ -73,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 color: Colors.lightBlueAccent,
                 onPressed: () async {
                   setState(() {
-                    showSpinner = true;
+                    _isLoading = true;
                   });
                   try {
                     var user = await _auth.signInWithEmailAndPassword(
@@ -96,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     print(e);
                   }
                   setState(() {
-                    showSpinner = false;
+                    _isLoading = false;
                   });
                 },
               ),
