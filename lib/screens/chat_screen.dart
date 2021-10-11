@@ -53,7 +53,9 @@ class _ChatScreenState extends State<ChatScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             MessageStreamBuilder(
-                stream: _firestore.collection('messages').snapshots()),
+              stream: _firestore.collection('messages').snapshots(),
+              loggedInUser: _user!,
+            ),
             Container(
               decoration: kMessageContainerDecoration,
               child: Row(
